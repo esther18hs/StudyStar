@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaderno Digital 🌸✨</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes Google: Quicksand y Outfit (moderna, tierna y legible) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cute: {
+                            pinkLight: '#fff0f5',
+                            pinkSoft: '#ffd6e0',
+                            pinkMain: '#ff8fb1',
+                            pinkDeep: '#ff6584',
+                            lilacLight: '#f6f0ff',
+                            lilacSoft: '#e5d9f2',
+                            lilacMain: '#bca0dc',
+                            blueLight: '#f0f9ff',
+                            blueSoft: '#cbe7ff',
+                            blueMain: '#8ec5fc',
+                            cream: '#fffdf9',
+                            cardBg: 'rgba(255, 255, 255, 0.88)',
+                            textDark: '#4a4458',
+                            textMuted: '#7f788f'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Quicksand', 'sans-serif'],
+                        title: ['Outfit', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 25px -4px rgba(229, 217, 242, 0.4), 0 8px 16px -6px rgba(255, 214, 224, 0.3)',
+                        'hover': '0 18px 32px -4px rgba(188, 160, 220, 0.4), 0 10px 20px -6px rgba(255, 143, 177, 0.35)',
+                        'fluffy': '0 8px 0px 0px rgba(255, 214, 224, 0.65)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(140deg, #fff2f6 0%, #f7efff 30%, #eef7ff 70%, #fffbf0 100%);
+            min-height: 100vh;
+            color: #4a4458;
+            overflow-x: hidden;
+        }
+
+        /* Nubes de fondo sutiles */
+        .bg-clouds {
+            background-image: 
+                radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.85) 0%, transparent 22%),
+                radial-gradient(circle at 88% 18%, rgba(255, 255, 255, 0.9) 0%, transparent 26%),
+                radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.7) 0%, transparent 32%),
+                radial-gradient(circle at 8% 82%, rgba(255, 255, 255, 0.8) 0%, transparent 24%);
+            background-attachment: fixed;
+        }
+
+        /* Animación suave de la estrellita flotante */
+        @keyframes floatSparkle {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) rotate(12deg) scale(1.15);
+            }
+        }
+
+        .sparkle-float {
+            display: inline-block;
+            animation: floatSparkle 2.6s ease-in-out infinite;
+        }
+
+        /* Scrollbar suave en tonos pastel */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fff5f8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e2cce9;
+            border-radius: 9999px;
+            border: 2px solid #fff5f8;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4a9dc;
+        }
+    </style>
+</head>
+<body class="bg-clouds text-cute-textDark flex flex-col min-h-screen">
+
+    <!-- ========================================== -->
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (FIJA) -->
+    <!-- ========================================== -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-pink-100/90 shadow-sm transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Logo & Título -->
+            <a href="#hero" class="flex items-center gap-3 group cursor-pointer">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-pink-300 via-purple-300 to-sky-300 flex items-center justify-center text-white text-lg shadow-sm group-hover:rotate-6 transition-transform">
+                    <span>🌸</span>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold font-title bg-gradient-to-r from-pink-500 via-purple-500 to-sky-500 bg-clip-text text-transparent">
+                        Cuaderno Digital
+                    </h1>
+                    <p class="text-[11px] font-semibold text-cute-textMuted tracking-wider flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-pink-400 animate-ping"></span> Tu espacio personal y acogedor
+                    </p>
+                </div>
+            </a>
+
+            <!-- Botones de Navegación con Scroll Suave hacia abajo -->
+            <nav class="flex items-center gap-1.5 sm:gap-2 bg-pink-50/70 p-1.5 rounded-full border border-pink-100 shadow-inner">
+                <a href="#hero" class="px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-cute-textMuted hover:text-pink-600 hover:bg-white transition flex items-center gap-1.5">
+                    <span>✦ Inicio</span>
+                </a>
+                <a href="#seccion-notas" class="px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-cute-textMuted hover:text-purple-600 hover:bg-white transition flex items-center gap-1.5">
+                    <span>📝 Mis Notas</span>
+                </a>
+                <a href="#seccion-tareas" class="px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-cute-textMuted hover:text-sky-600 hover:bg-white transition flex items-center gap-1.5">
+                    <span>✅ Mis Tareas</span>
+                </a>
+                <a href="#seccion-biblioteca" class="px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold text-cute-textMuted hover:text-pink-600 hover:bg-white transition flex items-center gap-1.5">
+                    <span>📚 Mi Biblioteca</span>
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- CONTENIDO PRINCIPAL (FORMATO DESLIZABLE) -->
+    <!-- ========================================== -->
+    <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-6 sm:py-8 space-y-12 flex-grow">
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN HERO: BIENVENIDO DE VUELTA -->
+        <!-- ========================================== -->
+        <section id="hero" class="relative overflow-hidden rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-pink-200/90 via-purple-200/90 to-sky-200/90 border-2 border-white shadow-soft">
+            <!-- Nubes decorativas de fondo -->
+            <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-white/40 blur-xl pointer-events-none"></div>
+            <div class="absolute right-32 -bottom-10 w-36 h-36 rounded-full bg-pink-100/50 blur-lg pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-3xl">
+                <!-- Fecha elegante en tiempo real -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-sm rounded-full text-xs sm:text-sm font-bold text-purple-600 shadow-sm border border-purple-100 mb-4">
+                    <i class="fa-regular fa-calendar text-pink-400"></i>
+                    <span id="fechaActual">Cargando fecha...</span>
+                </div>
+
+                <!-- Título Hero con estrellita animada -->
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-title text-cute-textDark mb-3 tracking-tight flex items-center gap-3">
+                    Bienvenido de vuelta <span class="sparkle-float text-pink-500">✦</span>
+                </h2>
+
+                <!-- Frase Motivadora Inspiradora -->
+                <p id="fraseMotivacional" class="text-base sm:text-lg text-cute-textMuted font-medium italic mb-6 leading-relaxed">
+                    "Cree en ti y en todo lo que eres capaz de crear hoy. Cada pequeño paso cuenta." 🌸✨
+                </p>
+
+                <!-- Resumen rápido / Badges estilo Cutie Rainbow -->
+                <div class="flex flex-wrap gap-3">
+                    <a href="#seccion-notas" class="px-4 py-2 bg-white/90 hover:bg-white rounded-2xl border border-pink-200 shadow-sm text-xs font-bold text-pink-600 flex items-center gap-2 transition hover:-translate-y-0.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-pink-400"></span>
+                        <span id="badgeHeroNotas">3 notas guardadas</span>
+                    </a>
+                    <a href="#seccion-tareas" class="px-4 py-2 bg-white/90 hover:bg-white rounded-2xl border border-purple-200 shadow-sm text-xs font-bold text-purple-600 flex items-center gap-2 transition hover:-translate-y-0.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                        <span id="badgeHeroTareas">0 tareas completadas</span>
+                    </a>
+                    <a href="#seccion-biblioteca" class="px-4 py-2 bg-white/90 hover:bg-white rounded-2xl border border-sky-200 shadow-sm text-xs font-bold text-sky-600 flex items-center gap-2 transition hover:-translate-y-0.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+                        <span id="badgeHeroLibros">4 libros en biblioteca</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 1: NOTAS Y APUNTES -->
+        <!-- ========================================== -->
+        <section id="seccion-notas" class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border-2 border-pink-100 shadow-soft">
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 border-b border-pink-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center text-xl shadow-inner">
+                        <i class="fa-regular fa-note-sticky"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold font-title text-cute-textDark">Notas y Apuntes</h3>
+                        <p class="text-xs text-cute-textMuted font-semibold">Espacio libre para tus ideas, clases y resúmenes</p>
+                    </div>
+                </div>
+                <span id="contadorNotas" class="bg-pink-100 text-pink-600 text-xs px-3 py-1 rounded-full font-bold">3 notas</span>
+            </div>
+
+            <!-- Formulario para Nuevo Apunte -->
+            <form id="formularioNotas" onsubmit="guardarNota(event)" class="mb-8 p-5 rounded-2xl bg-pink-50/50 border border-pink-200/80 space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div class="md:col-span-2">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-pink-600 mb-1">Título del apunte</label>
+                        <input type="text" id="notaTitulo" placeholder="Ej: Apuntes de Filosofía, Resumen de Clase..." required 
+                               class="w-full px-4 py-2.5 rounded-xl bg-white border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-pink-600 mb-1">Etiqueta</label>
+                        <select id="notaCategoria" class="w-full px-3 py-2.5 rounded-xl bg-white border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300 font-semibold text-cute-textDark">
+                            <option value="Estudio 📖">Estudio 📖</option>
+                            <option value="Proyectos 💡">Proyectos 💡</option>
+                            <option value="Lectura 🌸">Lectura 🌸</option>
+                            <option value="Personal ✨">Personal ✨</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-pink-600 mb-1">Contenido de tus apuntes</label>
+                    <textarea id="notaContenido" rows="3" placeholder="Escribe aquí con tranquilidad todo lo que quieras recordar..." required
+                              class="w-full px-4 py-2.5 rounded-xl bg-white border border-pink-200 text-sm focus:outline-none focus:ring-2 focus:ring-pink-300 leading-relaxed"></textarea>
+                </div>
+
+                <div class="flex justify-end">
+                    <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white rounded-2xl text-sm font-bold shadow-sm transition active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-xs"></i> <span>Guardar en mi cuaderno</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Cuadrícula de Notas tipo Post-it / Cute Notebook -->
+            <div id="contenedorNotas" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Se llenan con JavaScript dinámicamente -->
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 2: COSAS POR HACER (TAREAS) -->
+        <!-- ========================================== -->
+        <section id="seccion-tareas" class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border-2 border-purple-100 shadow-soft">
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-4 border-b border-purple-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-500 flex items-center justify-center text-xl shadow-inner">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold font-title text-cute-textDark">Lista de Cosas por Hacer</h3>
+                        <p class="text-xs text-cute-textMuted font-semibold">Organiza tus metas diarias paso a pasito</p>
+                    </div>
+                </div>
+                <span id="contadorTareas" class="bg-purple-100 text-purple-600 text-xs px-3 py-1 rounded-full font-bold">0 de 0 hechas</span>
+            </div>
+
+            <!-- Barra de Progreso Dinámica con gradiente lila y rosa pastel -->
+            <div class="mb-6 bg-purple-50 p-4 rounded-2xl border border-purple-100">
+                <div class="flex justify-between items-center text-xs font-bold text-purple-600 mb-2">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-sparkles text-pink-400"></i> Progreso diario</span>
+                    <span id="porcentajeTexto">0% completado</span>
+                </div>
+                <div class="w-full bg-purple-200/50 h-3.5 rounded-full overflow-hidden p-0.5">
+                    <div id="barraProgreso" class="h-full bg-gradient-to-r from-pink-300 via-purple-300 to-sky-300 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Formulario para Nueva Tarea -->
+            <form id="formularioTareas" onsubmit="agregarTarea(event)" class="flex gap-2 mb-6">
+                <input type="text" id="tareaInput" placeholder="¿Qué tarea te gustaría lograr hoy? 🌸..." required
+                       class="flex-1 px-4 py-2.5 rounded-2xl bg-purple-50/40 border border-purple-200 text-sm focus:outline-none focus:ring-2 focus:ring-purple-300 placeholder-purple-300">
+                <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-purple-400 to-indigo-400 hover:from-purple-500 hover:to-indigo-500 text-white font-bold rounded-2xl text-sm shadow-sm transition active:scale-95 flex items-center gap-2">
+                    <i class="fa-solid fa-plus text-xs"></i> <span class="hidden sm:inline">Agregar Tarea</span>
+                </button>
+            </form>
+
+            <!-- Lista de Tareas con checkboxes interactivos -->
+            <div id="contenedorTareas" class="space-y-2.5 mb-4">
+                <!-- Se llena dinámicamente con JavaScript -->
+            </div>
+
+            <div class="flex justify-between items-center pt-3 border-t border-purple-50 text-xs text-cute-textMuted">
+                <span id="pendientesTexto">0 pendientes</span>
+                <button onclick="limpiarCompletadas()" class="text-xs font-bold text-purple-500 hover:text-purple-700 transition">
+                    Eliminar tareas completadas
+                </button>
+            </div>
+        </section>
+
+        <!-- ========================================== -->
+        <!-- SECCIÓN 3: BIBLIOTECA PERSONAL -->
+        <!-- ========================================== -->
+        <section id="seccion-biblioteca" class="bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 border-2 border-sky-100 shadow-soft">
+            <div class="flex flex-wrap items-center justify-between gap-4 pb-4 mb-6 border-b border-sky-100">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-500 flex items-center justify-center text-xl shadow-inner">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold font-title text-cute-textDark">Mi Biblioteca Personal</h3>
+                        <p class="text-xs text-cute-textMuted font-semibold">Tus lecturas actuales, pendientes y favoritos</p>
+                    </div>
+                </div>
+                <span id="contadorLibros" class="bg-sky-100 text-sky-600 text-xs px-3 py-1 rounded-full font-bold">4 libros</span>
+            </div>
+
+            <!-- Formulario para Registrar Nuevo Libro -->
+            <form id="formularioLibros" onsubmit="guardarLibro(event)" class="mb-8 p-5 rounded-2xl bg-sky-50/50 border border-sky-200/80 space-y-3">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-sky-700 mb-1">Título del libro</label>
+                        <input type="text" id="libroTitulo" placeholder="Ej: Cien años de soledad" required 
+                               class="w-full px-3 py-2 rounded-xl bg-white border border-sky-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-sky-700 mb-1">Autor o Autora</label>
+                        <input type="text" id="libroAutor" placeholder="Ej: Gabriel García Márquez" required 
+                               class="w-full px-3 py-2 rounded-xl bg-white border border-sky-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-sky-700 mb-1">Estado</label>
+                        <select id="libroEstado" class="w-full px-3 py-2 rounded-xl bg-white border border-sky-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 font-semibold text-cute-textDark">
+                            <option value="leyendo">📖 Leyendo</option>
+                            <option value="leido">✨ Leído</option>
+                            <option value="por leer">⏳ Por leer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-sky-700 mb-1">Calificación</label>
+                        <select id="libroRating" class="w-full px-3 py-2 rounded-xl bg-white border border-sky-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-300 font-semibold text-cute-textDark">
+                            <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+                            <option value="4">⭐⭐⭐⭐ (4/5)</option>
+                            <option value="3">⭐⭐⭐ (3/5)</option>
+                            <option value="2">⭐⭐ (2/5)</option>
+                            <option value="1">⭐ (1/5)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Campo para la RUTA LOCAL de imagen o URL web -->
+                <div class="bg-white/80 p-3.5 rounded-xl border border-dashed border-sky-300">
+                    <label class="block text-xs font-bold text-sky-700 mb-1 flex items-center gap-1.5">
+                        <i class="fa-regular fa-image"></i> Portada del Libro (Ruta local o URL web)
+                    </label>
+                    <p class="text-[11px] text-cute-textMuted mb-2">
+                        Puedes escribir una ruta local de tu proyecto en VS Code (ej: <code>imagenes/milibro.jpg</code> o <code>portadas/cien-anos.png</code>) o pegar un link de internet.
+                    </p>
+                    <input type="text" id="libroPortada" placeholder="Ej: imagenes/milibro.jpg o https://images.unsplash.com/..." 
+                           class="w-full px-3 py-2 rounded-xl bg-sky-50/50 border border-sky-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-300">
+                </div>
+
+                <div class="flex justify-end">
+                    <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-sky-400 to-blue-400 hover:from-sky-500 hover:to-blue-500 text-white rounded-2xl text-sm font-bold shadow-sm transition active:scale-95 flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-xs"></i> <span>Añadir a mi biblioteca</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Galería de Libros con portadas verticales e imágenes -->
+            <div id="contenedorLibros" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Se renderizan los libros aquí vía JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- PIE DE PÁGINA ACOGEDOR -->
+    <!-- ========================================== -->
+    <footer class="mt-auto py-8 text-center text-xs text-cute-textMuted border-t border-pink-100 bg-white/40">
+        <p class="font-medium">Hecho con mucho cariño 💜 • Inspirado en estética pastel Cutie Rainbow</p>
+        <p class="text-[11px] mt-1 text-gray-400">Listo para editar y usar con Live Server en Visual Studio Code ✨</p>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- LÓGICA JAVASCRIPT DIRECTA Y PURA -->
+    <!-- ========================================== -->
+    <script>
+        // 1. DATOS INICIALES POR DEFECTO
+        const defaultNotes = [
+            {
+                id: 1,
+                title: 'Apuntes de Filosofía',
+                category: 'Estudio 📖',
+                date: 'Hoy',
+                content: 'El ser y la nada — Sartre plantea que la existencia precede a la esencia. Somos libres de definir nuestro propio camino.'
+            },
+            {
+                id: 2,
+                title: 'Ideas para proyectos',
+                category: 'Proyectos 💡',
+                date: 'Ayer',
+                content: 'Diseñar una app de estudio con estética pastel, música lo-fi relajante y seguimiento de lecturas del semestre.'
+            },
+            {
+                id: 3,
+                title: 'Resumen: Física Cuántica',
+                category: 'Estudio 📖',
+                date: '23 oct',
+                content: 'El principio de incertidumbre de Heisenberg establece que no podemos determinar simultáneamente con precisión la posición y el momento.'
+            }
+        ];
+
+        const defaultTasks = [
+            { id: 1, text: 'Terminar capítulo 4 de Cien años de soledad', completed: true },
+            { id: 2, text: 'Revisar apuntes de matemáticas', completed: false },
+            { id: 3, text: 'Comprar cuaderno nuevo color pastel', completed: false },
+            { id: 4, text: 'Escribir reseña de El Principito', completed: true },
+            { id: 5, text: 'Organizar mi biblioteca personal', completed: false }
+        ];
+
+        // ==============================================================
+        // COMENTARIO PARA VS CODE:
+        // En la propiedad 'cover' de cada libro puedes escribir tu ruta local:
+        // Ejemplo local: 'imagenes/cien-anos.jpg' o 'portadas/principito.png'
+        // ==============================================================
+        const defaultBooks = [
+            {
+                id: 1,
+                title: 'Cien años de soledad',
+                author: 'Gabriel García Márquez',
+                status: 'leyendo',
+                rating: 5,
+                // Puedes cambiar esta URL por tu archivo local (ej: 'imagenes/cien_anos.jpg')
+                cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=300'
+            },
+            {
+                id: 2,
+                title: 'El Principito',
+                author: 'Antoine de Saint-Exupéry',
+                status: 'leido',
+                rating: 5,
+                // Puedes cambiar esta URL por tu archivo local (ej: 'imagenes/principito.jpg')
+                cover: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300'
+            },
+            {
+                id: 3,
+                title: 'Sapiens',
+                author: 'Yuval Noah Harari',
+                status: 'por leer',
+                rating: 4,
+                // Puedes cambiar esta URL por tu archivo local (ej: 'imagenes/sapiens.jpg')
+                cover: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=300'
+            },
+            {
+                id: 4,
+                title: '1984',
+                author: 'George Orwell',
+                status: 'por leer',
+                rating: 5,
+                // Puedes cambiar esta URL por tu archivo local (ej: 'imagenes/1984.jpg')
+                cover: 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=300'
+            }
+        ];
+
+        // 2. RECUPERAR DE LOCALSTORAGE O USAR DATOS BASE
+        let notes = JSON.parse(localStorage.getItem('cuaderno_notes_v2')) || defaultNotes;
+        let tasks = JSON.parse(localStorage.getItem('cuaderno_tasks_v2')) || defaultTasks;
+        let books = JSON.parse(localStorage.getItem('cuaderno_books_v2')) || defaultBooks;
+
+        function guardarDatos() {
+            localStorage.setItem('cuaderno_notes_v2', JSON.stringify(notes));
+            localStorage.setItem('cuaderno_tasks_v2', JSON.stringify(tasks));
+            localStorage.setItem('cuaderno_books_v2', JSON.stringify(books));
+            actualizarBadgesHero();
+        }
+
+        // 3. INICIALIZACIÓN
+        window.onload = function() {
+            mostrarFecha();
+            renderizarNotas();
+            renderizarTareas();
+            renderizarLibros();
+            actualizarBadgesHero();
+        };
+
+        function mostrarFecha() {
+            const fechaEl = document.getElementById('fechaActual');
+            const fechaHoy = new Date();
+            const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const texto = fechaHoy.toLocaleDateString('es-ES', opciones);
+            fechaEl.textContent = texto.charAt(0).toUpperCase() + texto.slice(1);
+        }
+
+        function actualizarBadgesHero() {
+            const bNotas = document.getElementById('badgeHeroNotas');
+            const bTareas = document.getElementById('badgeHeroTareas');
+            const bLibros = document.getElementById('badgeHeroLibros');
+
+            const tareasCompletadas = tasks.filter(t => t.completed).length;
+
+            bNotas.textContent = `${notes.length} notas guardadas`;
+            bTareas.textContent = `${tareasCompletadas} de ${tasks.length} tareas hechas`;
+            bLibros.textContent = `${books.length} libros en biblioteca`;
+        }
+
+        // ==========================================
+        // 4. FUNCIONES DE NOTAS
+        // ==========================================
+        function renderizarNotas() {
+            const contenedor = document.getElementById('contenedorNotas');
+            const contador = document.getElementById('contadorNotas');
+            contador.textContent = `${notes.length} ${notes.length === 1 ? 'nota' : 'notas'}`;
+
+            contenedor.innerHTML = '';
+            if (notes.length === 0) {
+                contenedor.innerHTML = '<div class="col-span-full text-center py-8 text-cute-textMuted text-xs"><p>No tienes apuntes todavía. ¡Escribe el primero arriba! 🌸</p></div>';
+                return;
+            }
+
+            notes.forEach(nota => {
+                const card = document.createElement('div');
+                card.className = 'p-4 rounded-2xl bg-gradient-to-br from-pink-50/80 to-purple-50/50 border border-pink-200/70 hover:shadow-md transition-all flex flex-col justify-between';
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-600">${nota.category || 'Apunte'}</span>
+                            <span class="text-[10px] font-semibold text-cute-textMuted">${nota.date || 'Hoy'}</span>
+                        </div>
+                        <h4 class="font-bold text-sm text-cute-textDark mb-1.5">${nota.title}</h4>
+                        <p class="text-xs text-cute-textMuted leading-relaxed whitespace-pre-wrap">${nota.content}</p>
+                    </div>
+                    <div class="flex justify-end mt-3 pt-2 border-t border-pink-100/60">
+                        <button onclick="eliminarNota(${nota.id})" class="text-xs text-pink-400 hover:text-red-500 font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-trash text-[10px]"></i> Eliminar
+                        </button>
+                    </div>
+                `;
+                contenedor.appendChild(card);
+            });
+        }
+
+        function guardarNota(e) {
+            e.preventDefault();
+            const titulo = document.getElementById('notaTitulo').value.trim();
+            const categoria = document.getElementById('notaCategoria').value;
+            const contenido = document.getElementById('notaContenido').value.trim();
+
+            if (!titulo || !contenido) return;
+
+            const nuevaNota = {
+                id: Date.now(),
+                title: titulo,
+                category: categoria,
+                date: 'Hoy',
+                content: contenido
+            };
+
+            notes.unshift(nuevaNota);
+            guardarDatos();
+            renderizarNotas();
+
+            document.getElementById('notaTitulo').value = '';
+            document.getElementById('notaContenido').value = '';
+        }
+
+        function eliminarNota(id) {
+            notes = notes.filter(n => n.id !== id);
+            guardarDatos();
+            renderizarNotas();
+        }
+
+        // ==========================================
+        // 5. FUNCIONES DE TAREAS
+        // ==========================================
+        function renderizarTareas() {
+            const contenedor = document.getElementById('contenedorTareas');
+            const contador = document.getElementById('contadorTareas');
+            const barra = document.getElementById('barraProgreso');
+            const porcentajeTexto = document.getElementById('porcentajeTexto');
+            const pendientesTexto = document.getElementById('pendientesTexto');
+
+            const total = tasks.length;
+            const completadas = tasks.filter(t => t.completed).length;
+            const pendientes = total - completadas;
+            const porcentaje = total > 0 ? Math.round((completadas / total) * 100) : 0;
+
+            contador.textContent = `${completadas} de ${total} hechas`;
+            barra.style.width = `${porcentaje}%`;
+            porcentajeTexto.textContent = `${porcentaje}% completado`;
+            pendientesTexto.textContent = `${pendientes} pendiente${pendientes === 1 ? '' : 's'}`;
+
+            contenedor.innerHTML = '';
+            if (tasks.length === 0) {
+                contenedor.innerHTML = '<div class="text-center py-6 text-cute-textMuted text-xs"><p>No tienes tareas pendientes. ¡Día libre! 🎉</p></div>';
+                return;
+            }
+
+            tasks.forEach(tarea => {
+                const item = document.createElement('div');
+                item.className = 'flex items-center justify-between p-3 rounded-2xl bg-purple-50/50 hover:bg-purple-50 border border-purple-100 transition';
+                item.innerHTML = `
+                    <label class="flex items-center gap-3 cursor-pointer flex-1 select-none">
+                        <input type="checkbox" ${tarea.completed ? 'checked' : ''} onchange="alternarTarea(${tarea.id})" 
+                               class="w-5 h-5 rounded-lg text-purple-400 focus:ring-purple-300 accent-purple-400 cursor-pointer">
+                        <span class="text-xs sm:text-sm font-medium ${tarea.completed ? 'line-through text-gray-400' : 'text-cute-textDark'} transition">
+                            ${tarea.text}
+                        </span>
+                    </label>
+                    <button onclick="eliminarTarea(${tarea.id})" class="text-purple-300 hover:text-red-400 text-xs px-2 transition font-bold">
+                        ✕
+                    </button>
+                `;
+                contenedor.appendChild(item);
+            });
+        }
+
+        function agregarTarea(e) {
+            e.preventDefault();
+            const input = document.getElementById('tareaInput');
+            const texto = input.value.trim();
+            if (!texto) return;
+
+            tasks.push({
+                id: Date.now(),
+                text: texto,
+                completed: false
+            });
+
+            input.value = '';
+            guardarDatos();
+            renderizarTareas();
+        }
+
+        function alternarTarea(id) {
+            const tarea = tasks.find(t => t.id === id);
+            if (tarea) {
+                tarea.completed = !tarea.completed;
+                guardarDatos();
+                renderizarTareas();
+            }
+        }
+
+        function eliminarTarea(id) {
+            tasks = tasks.filter(t => t.id !== id);
+            guardarDatos();
+            renderizarTareas();
+        }
+
+        function limpiarCompletadas() {
+            tasks = tasks.filter(t => !t.completed);
+            guardarDatos();
+            renderizarTareas();
+        }
+
+        // ==========================================
+        // 6. FUNCIONES DE BIBLIOTECA
+        // ==========================================
+        function renderizarLibros() {
+            const contenedor = document.getElementById('contenedorLibros');
+            const contador = document.getElementById('contadorLibros');
+            contador.textContent = `${books.length} ${books.length === 1 ? 'libro' : 'libros'}`;
+
+            contenedor.innerHTML = '';
+            if (books.length === 0) {
+                contenedor.innerHTML = '<div class="col-span-full text-center py-8 text-cute-textMuted text-xs"><p>No tienes libros en tu biblioteca todavía. ¡Agrega uno arriba! 📚</p></div>';
+                return;
+            }
+
+            books.forEach(libro => {
+                let badgeClass = 'bg-sky-100 text-sky-600';
+                let estadoTexto = '📖 Leyendo';
+                if (libro.status === 'leido') {
+                    badgeClass = 'bg-emerald-100 text-emerald-600';
+                    estadoTexto = '✨ Leído';
+                } else if (libro.status === 'por leer') {
+                    badgeClass = 'bg-amber-100 text-amber-600';
+                    estadoTexto = '⏳ Por leer';
+                }
+
+                const ratingNum = parseInt(libro.rating) || 5;
+                const estrellas = '★'.repeat(ratingNum) + '☆'.repeat(5 - ratingNum);
+
+                // Portada por defecto si está vacía
+                const portadaUrl = (libro.cover && libro.cover.trim() !== '') 
+                    ? libro.cover 
+                    : 'https://placehold.co/140x190/dbeafe/4a4458?text=Portada';
+
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl p-3 border border-sky-100 hover:shadow-md transition flex flex-col justify-between';
+                card.innerHTML = `
+                    <div>
+                        <!-- Contenedor vertical de portada con espacio de imagen -->
+                        <div class="w-full h-44 rounded-xl overflow-hidden bg-sky-50 mb-3 border border-sky-100 flex items-center justify-center shadow-inner">
+                            <img src="${portadaUrl}" alt="Portada de ${libro.title}" 
+                                 class="w-full h-full object-cover"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/140x190/e0f2fe/64748b?text=Sin+Foto';">
+                        </div>
+
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full ${badgeClass}">
+                                ${estadoTexto}
+                            </span>
+                            <span class="text-amber-400 text-xs tracking-tighter">${estrellas}</span>
+                        </div>
+
+                        <h4 class="font-bold text-sm text-cute-textDark truncate" title="${libro.title}">${libro.title}</h4>
+                        <p class="text-xs text-cute-textMuted truncate mb-2">${libro.author}</p>
+                    </div>
+
+                    <div class="flex justify-end pt-2 border-t border-sky-50">
+                        <button onclick="eliminarLibro(${libro.id})" class="text-xs text-sky-400 hover:text-red-500 font-bold transition flex items-center gap-1">
+                            <i class="fa-solid fa-trash text-[10px]"></i> Quitar
+                        </button>
+                    </div>
+                `;
+                contenedor.appendChild(card);
+            });
+        }
+
+        function guardarLibro(e) {
+            e.preventDefault();
+            const titulo = document.getElementById('libroTitulo').value.trim();
+            const autor = document.getElementById('libroAutor').value.trim();
+            const estado = document.getElementById('libroEstado').value;
+            const rating = document.getElementById('libroRating').value;
+            const portada = document.getElementById('libroPortada').value.trim();
+
+            if (!titulo || !autor) return;
+
+            const nuevoLibro = {
+                id: Date.now(),
+                title: titulo,
+                author: autor,
+                status: estado,
+                rating: rating,
+                cover: portada
+            };
+
+            books.unshift(nuevoLibro);
+            guardarDatos();
+            renderizarLibros();
+
+            document.getElementById('libroTitulo').value = '';
+            document.getElementById('libroAutor').value = '';
+            document.getElementById('libroPortada').value = '';
+        }
+
+        function eliminarLibro(id) {
+            books = books.filter(b => b.id !== id);
+            guardarDatos();
+            renderizarLibros();
+        }
+    </script>
+</body>
+</html>
